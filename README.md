@@ -4,7 +4,7 @@ Selfbot Discord pour automatiser la commande `$p` de Mudae.
 
 ## Avertissement
 
-L'utilisation de selfbots viole les conditions d'utilisation de Discords. Utilisation à vos propres risques.
+L'utilisation de selfbots viole les conditions d'utilisation de Discord. Utilisation à vos propres risques.
 
 ## Installation
 
