@@ -178,9 +178,10 @@ function saveConfig(token, channelId, startup) {
 
 function addToStartup() {
   try {
-    const launchPath = path.join(process.cwd(), 'launch.bat').replace(/\\/g, '\\\\');
+    const workDir    = process.cwd().replace(/\\/g, '\\\\');
+    const silentPath = path.join(process.cwd(), 'src', 'silent.vbs').replace(/\\/g, '\\\\');
     execSync(
-      `powershell -Command "$s = New-Object -ComObject WScript.Shell; $l = $s.CreateShortcut([Environment]::GetFolderPath('Startup') + '\\\\Autoya.lnk'); $l.TargetPath = '${launchPath}'; $l.Save()"`,
+      `powershell -Command "$s = New-Object -ComObject WScript.Shell; $l = $s.CreateShortcut([Environment]::GetFolderPath('Startup') + '\\\\Autoya.lnk'); $l.TargetPath = 'wscript.exe'; $l.Arguments = '\"${silentPath}\"'; $l.WorkingDirectory = '${workDir}'; $l.Save()"`,
       { stdio: 'ignore' }
     );
     return true;
